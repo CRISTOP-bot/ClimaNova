@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ClimaNova",
+  "version": "1.0.0",
+  "identifier": "mx.climanova.desktop",
+  "build": {"frontendDist": "../"},
+  "app": {"windows": [{"title": "ClimaNova", "width": 1440, "height": 940, "minWidth": 900, "minHeight": 650, "backgroundColor": "#08131d"}], "security": {"csp": null}},
+  "bundle": {"active": true, "targets": ["nsis", "msi"]}
+}

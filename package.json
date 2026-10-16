@@ -1,0 +1,57 @@
+{
+  "name": "climanova",
+  "version": "1.0.0",
+  "description": "ClimaNova — aplicación meteorológica animada para escritorio",
+  "main": "electron/main.cjs",
+  "author": "ClimaNova",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis portable",
+    "dist:win:nsis": "electron-builder --win nsis",
+    "dist:win:portable": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "mx.climanova.desktop",
+    "productName": "ClimaNova",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "app.js",
+      "assets/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "ClimaNova-${version}-${arch}.${ext}",
+      "icon": "assets/logo.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
