@@ -44,14 +44,17 @@
           ]
         }
       ],
-      "artifactName": "ClimaNova-${version}-${arch}.${ext}",
       "icon": "assets/logo.ico"
     },
     "nsis": {
+      "artifactName": "ClimaNova-${version}-Setup-${arch}.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
+    },
+    "portable": {
+      "artifactName": "ClimaNova-${version}-Portable-${arch}.${ext}"
     }
   }
 }
