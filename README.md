@@ -7,7 +7,8 @@ Aplicación meteorológica de escritorio para Windows 10/11, en español. Usa El
 - Clima actual y pronóstico de 7 días, vista por horas y gráfica de temperaturas.
 - Búsqueda de ciudades, detección de ubicación con permiso y lugares favoritos.
 - AQI, PM2.5, PM10, ozono y NO₂.
-- Mapa OpenStreetMap con marcador y radar de precipitación RainViewer, si el servicio está disponible.
+- Mapa OpenStreetMap con radar de precipitación RainViewer y capas de nubosidad y viento con datos de Open-Meteo.
+- Avisos diferenciados para falta de conexión, errores y límites de las API, respuestas inválidas, ubicación no disponible y fallos del mapa, con opción de reintentar.
 - Animaciones, diseño adaptable, unidades °C/°F y preferencias guardadas localmente.
 
 La conexión a internet es necesaria para los datos meteorológicos, geocodificación, mapa y calidad del aire.
@@ -18,7 +19,7 @@ Las versiones compiladas se publican en [Releases](https://github.com/CRISTOP-bo
 
 ## Releases automáticas
 
-Cada push a `main` activa `.github/workflows/windows-release.yml` en un runner `windows-latest`. Si el empaquetado termina correctamente, se crea una release nueva con ambos `.exe` y se marca como la versión más reciente. También se puede disparar manualmente desde GitHub Actions.
+Cada push a `main` activa `.github/workflows/windows-release.yml` en un runner `windows-latest`. Cada ejecución genera una versión única `1.0.<número de build>`, aplicada al paquete, a la interfaz, a los nombres de los `.exe` y a la etiqueta de la release. Si el empaquetado termina correctamente, se publica una release nueva con ambos `.exe`; también se puede disparar manualmente desde GitHub Actions. La versión se genera dentro del runner para no crear un commit adicional que dispare otro build.
 
 ## Compilar localmente en Windows
 

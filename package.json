@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "check": "node --check app.js && node --check electron/main.cjs",
+    "check": "node --check app.js && node --check build-version.js && node --check electron/main.cjs && node --check .github/scripts/set-build-version.cjs",
     "dist:win": "electron-builder --win nsis portable --publish never",
     "dist:win:nsis": "electron-builder --win nsis",
     "dist:win:portable": "electron-builder --win portable"
@@ -26,6 +26,7 @@
       "index.html",
       "styles.css",
       "app.js",
+      "build-version.js",
       "assets/**/*",
       "electron/**/*",
       "package.json"
