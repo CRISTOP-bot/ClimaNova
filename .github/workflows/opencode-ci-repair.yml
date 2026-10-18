@@ -70,7 +70,7 @@ jobs:
 
           PROMPT
           printf '\nFailed run: %s\n' "$FAILED_RUN_URL" >> /tmp/opencode-prompt.md
-          "$HOME/.opencode/bin/opencode" run --model "$MODEL" --auto --prompt "$(cat /tmp/opencode-prompt.md)"
+          "$HOME/.opencode/bin/opencode" run --model "$MODEL" --auto "$(cat /tmp/opencode-prompt.md)"
 
       - name: Create a reviewable repair pull request
         id: repair-pr
