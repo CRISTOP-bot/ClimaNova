@@ -1,0 +1,8 @@
+{
+  "appId": "mx.climanova.mobile",
+  "appName": "ClimaNova",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

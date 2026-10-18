@@ -7,12 +7,17 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "check": "node --check app.js && node --check build-version.js && node --check electron/main.cjs && node --check .github/scripts/set-build-version.cjs",
+    "check": "node --check app.js && node --check build-version.js && node --check electron/main.cjs && node --check .github/scripts/set-build-version.cjs && node --check .github/scripts/copy-web.cjs && node --check .github/scripts/set-android-version.cjs",
     "dist:win": "electron-builder --win nsis portable --publish never",
     "dist:win:nsis": "electron-builder --win nsis",
-    "dist:win:portable": "electron-builder --win portable"
+    "dist:win:portable": "electron-builder --win portable",
+    "build:web": "node .github/scripts/copy-web.cjs"
   },
   "devDependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/geolocation": "^7.1.4",
     "electron": "^33.2.1",
     "electron-builder": "^25.1.8"
   },

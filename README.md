@@ -15,11 +15,13 @@ La conexión a internet es necesaria para los datos meteorológicos, geocodifica
 
 ## Descargar la app
 
-Las versiones compiladas se publican en [Releases](https://github.com/CRISTOP-bot/ClimaNova/releases). La release ofrece el instalador NSIS y el ejecutable portable de Windows. El portable también necesita que se extraiga el paquete completo antes de abrir el `.exe`.
+Las versiones compiladas se publican en [Releases](https://github.com/CRISTOP-bot/ClimaNova/releases). Cada release ofrece el instalador NSIS y el ejecutable portable de Windows, además del APK Android para instalación manual. El portable de Windows también necesita que se extraiga el paquete completo antes de abrir el `.exe`; el APK de CI no es una publicación en Google Play.
 
 ## Releases automáticas
 
-Cada push a `main` activa `.github/workflows/windows-release.yml` en un runner `windows-latest`. Cada ejecución genera una versión única `1.0.<número de build>`, aplicada al paquete, a la interfaz, a los nombres de los `.exe` y a la etiqueta de la release. Si el empaquetado termina correctamente, se publica una release nueva con ambos `.exe`; también se puede disparar manualmente desde GitHub Actions. La versión se genera dentro del runner para no crear un commit adicional que dispare otro build.
+Cada push a `main` activa `.github/workflows/windows-release.yml` y construye en paralelo Windows y Android. La ejecución genera una versión única `1.0.<número de build>`; si ambos builds pasan, publica una release con instalador y portable `.exe` más el APK. Un PR ejecuta las compilaciones, pero no publica release. También se puede disparar manualmente desde GitHub Actions. La versión se genera dentro del runner para no crear un commit adicional que dispare otro build.
+
+Para preparar el paquete Android localmente se necesita Node.js 20+, Java 21 y Android SDK; `npm run build:web`, `npx cap add android` y `npx cap sync android` generan el proyecto nativo. El APK automatizado está firmado con la clave de depuración de Android; sirve para instalar y probar, no para Google Play.
 
 ## Compilar localmente en Windows
 
